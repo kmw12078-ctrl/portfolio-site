@@ -4,7 +4,7 @@ export const profile = {
   name: '전자공학 포트폴리오', // 실제 이름으로 교체
   headline: '현장의 문제를 데이터와 기술로 이해하는 엔지니어',
   introduction: '전자공학을 바탕으로 제어, 임베디드, 소프트웨어 프로젝트를 경험했습니다. 품질관리와 생산기술 직무에서 측정과 분석을 통해 개선점을 찾는 일을 지향합니다.',
-  email: '', // 예: name@example.com
+  email: 'kmw4653@naver.com', // 예: name@example.com
   github: '', // 예: https://github.com/username
   resume: '', // 예: /resume.pdf (public 폴더에 파일 추가)
 };
@@ -16,7 +16,7 @@ export const navigation = [
 
 export const projects = [
   {
-    number: '01', category: 'CONTROL SYSTEM', title: 'Ball-on-Plate PID',
+    number: '01', category: 'CONTROL SYSTEM', title: 'Ball balancing',
     subtitle: '캡스톤 디자인 · 위치 제어',
     description: '판 위 공의 위치를 인식하고 목표 위치로 이동시키는 제어 시스템을 설계한 프로젝트입니다.',
     process: ['위치 인식', '오차 계산', 'PID 제어', '구동부 조정'],
@@ -41,7 +41,7 @@ export const projects = [
     description: '사용자와 대화하는 AI 챗봇을 주제로 기능 흐름과 사용 경험을 고민한 프로젝트입니다.',
     process: ['대화 흐름 설계', '입력 처리', '응답 연결', '사용성 점검'],
     focus: '사용한 모델, 구현 범위와 본인의 역할은 확인 후 구체적으로 기입하는 것이 좋습니다.',
-    stack: ['AI Chatbot', 'Python'],
+    stack: ['AI Chatbot', 'Python','Ubuntu'],
     href: '',
     visual: 'chat',
   },
@@ -54,6 +54,6 @@ export const skillGroups = [
 ];
 
 export const experience = [
-  { title: '캡스톤 디자인', text: 'Ball-on-Plate PID 프로젝트를 통해 위치 인식부터 제어 응답 확인까지의 과정을 다뤘습니다.' },
+  { title: '캡스톤 디자인', text: 'Ball balancing 프로젝트를 통해 위치 인식부터 제어 응답 확인까지의 과정을 다뤘습니다.' },
   { title: '기술 프로젝트', text: 'ATmega128·STM32 임베디드 구현과 MisoTalk 챗봇을 프로젝트 주제로 경험했습니다.' },
 ];
