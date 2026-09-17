@@ -45,6 +45,8 @@ export const projects = [
     process: ['증상 입력', '사용자 상태 확인', '약 정보 응답', '주변 약국 검색'],
     focus: '약 정보 조사, Misotalk.py 메인 컨트롤러 동작, 네이버 지도 검색 결과의 메인 파일 연결을 맡았습니다.',
     stack: ['Python', 'ChatScript', 'SQLite', 'OpenAI API'],
+    image: '/misotalk/Ubuntu.png',
+    imageAlt: 'Ubuntu 로고',
     detailId: 'misotalk-detail',
     detailLabel: '담당 역할과 작동 영상 보기',
     href: '',
