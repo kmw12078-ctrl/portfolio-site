@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { profile, navigation, projects, skillGroups, experience, capstone } from './content.js';
 
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 function ArrowIcon({ diagonal = false }) {
   return diagonal ? <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
     : <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>;
@@ -34,7 +36,7 @@ function ProjectVisual({ type }) {
 
 function ProjectCard({ project }) {
   return <article className="project-card reveal">
-    {project.image ? <img className="project-photo" src={project.image} alt={project.imageAlt} loading="lazy" width="1299" height="781" /> : <ProjectVisual type={project.visual} />}
+    {project.image ? <img className="project-photo" src={assetUrl(project.image)} alt={project.imageAlt} loading="lazy" width="1299" height="781" /> : <ProjectVisual type={project.visual} />}
     <div className="project-body">
       <div className="project-meta"><span>{project.number} / {project.category}</span><span>{project.subtitle}</span></div>
       <h3>{project.title}</h3>
@@ -57,13 +59,13 @@ function CapstoneCaseStudy() {
       <span className="role-badge">{capstone.role}</span>
     </header>
     <div className="case-intro-grid">
-      <figure className="case-figure"><img src="/capstone/system.jpeg" width="1299" height="781" loading="lazy" alt="카메라가 설치된 볼 밸런싱 로봇과 실시간 공 인식 화면"/><figcaption>팀이 제작한 로봇과 영상 인식 화면 · 최종 보고서 수록 사진</figcaption></figure>
+      <figure className="case-figure"><img src={assetUrl('/capstone/system.jpeg')} width="1299" height="781" loading="lazy" alt="카메라가 설치된 볼 밸런싱 로봇과 실시간 공 인식 화면"/><figcaption>팀이 제작한 로봇과 영상 인식 화면 · 최종 보고서 수록 사진</figcaption></figure>
       <div className="contributions"><h4>직접 맡은 일</h4>{capstone.contributions.map((item,i)=><div key={item.title}><span>0{i+1}</span><h5>{item.title}</h5><p>{item.text}</p></div>)}</div>
     </div>
     <h4>영상에서 제어 입력까지</h4>
     <ol className="vision-flow">{capstone.flow.map((step,i)=><li key={step}><span>0{i+1}</span>{step}</li>)}</ol>
     <div className="case-analysis-grid">
-      <figure className="case-figure detection-figure"><img src="/capstone/detection.png" width="519" height="520" loading="lazy" alt="주황색 공의 외곽을 검출하고 중심에 십자선을 표시한 인식 화면"/><figcaption>주황색 공의 검출 영역과 중심 위치 확인</figcaption></figure>
+      <figure className="case-figure detection-figure"><img src={assetUrl('/capstone/detection.png')} width="519" height="520" loading="lazy" alt="주황색 공의 외곽을 검출하고 중심에 십자선을 표시한 인식 화면"/><figcaption>주황색 공의 검출 영역과 중심 위치 확인</figcaption></figure>
       <div><h4>문제와 해결 과정</h4>{capstone.findings.map(item=><div className="case-finding" key={item.title}><h5>{item.title}</h5><p>{item.text}</p></div>)}</div>
     </div>
     <h4>팀 시스템의 실험 결과</h4>
