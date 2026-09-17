@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { profile, navigation, projects, skillGroups, experience, capstone } from './content.js';
+import { profile, navigation, projects, skillGroups, experience, capstone, misotalk } from './content.js';
 
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
@@ -44,7 +44,7 @@ function ProjectCard({ project }) {
       <div className="project-detail"><span className="detail-label">PROCESS</span><p>{project.process.join(' → ')}</p></div>
       <div className="project-detail"><span className="detail-label">FOCUS</span><p>{project.focus}</p></div>
       <div className="project-footer"><div className="tags">{project.stack.map(item => <span key={item}>{item}</span>)}</div>{project.href && <a className="project-link" href={project.href} target="_blank" rel="noreferrer" aria-label={`${project.title} 자세히 보기`}><ArrowIcon diagonal /></a>}</div>
-      {project.detailId && <a className="case-link" href={`#${project.detailId}`}>담당 역할과 결과 보기 <ArrowIcon /></a>}
+      {project.detailId && <a className="case-link" href={`#${project.detailId}`}>{project.detailLabel || '담당 역할과 결과 보기'} <ArrowIcon /></a>}
     </div>
   </article>;
 }
@@ -75,6 +75,31 @@ function CapstoneCaseStudy() {
   </article>;
 }
 
+function MisoTalkCaseStudy() {
+  return <article className="capstone-case misotalk-case" id="misotalk-detail" aria-labelledby="misotalk-title">
+    <header className="case-heading">
+      <p className="eyebrow">MISOTALK / CHATBOT PROTOTYPE</p>
+      <p className="case-context">{misotalk.context}</p>
+      <h3 id="misotalk-title">{misotalk.title}</h3>
+      <p>{misotalk.overview}</p>
+      <span className="role-badge">{misotalk.role}</span>
+    </header>
+    <div className="misotalk-details">
+      <div className="contributions"><h4>직접 맡은 일</h4>{misotalk.contributions.map((item, i) => <div key={item.title}><span>0{i + 1}</span><h5>{item.title}</h5><p>{item.text}</p></div>)}</div>
+      <div className="misotalk-features"><h4>팀이 시연한 기능</h4>{misotalk.features.map(item => <div key={item.title}><h5>{item.title}</h5><p>{item.text}</p></div>)}</div>
+    </div>
+    <div className="misotalk-demo">
+      <h4>작동 영상</h4>
+      <video controls playsInline preload="metadata" aria-label="MisoTalk 챗봇 작동 시연 영상">
+        <source src={assetUrl(misotalk.video)} type="video/mp4" />
+        사용 중인 브라우저에서 영상을 재생할 수 없습니다.
+      </video>
+      <p>{misotalk.videoCaption}</p>
+    </div>
+    <div className="misotalk-limit"><h4>프로토타입의 한계</h4><p>{misotalk.limitation}</p></div>
+  </article>;
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -85,6 +110,10 @@ export default function App() {
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    if (window.location.hash) {
+      const targetId = decodeURIComponent(window.location.hash.slice(1));
+      requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView());
+    }
     return () => observer.disconnect();
   }, []);
 
@@ -120,7 +149,7 @@ export default function App() {
 
       <section className="section about-section" id="about"><div className="container about-grid"><SectionHeading eyebrow="01 / ABOUT ME" title="관찰에서 개선까지"/><div className="about-copy reveal"><p className="about-lead">{profile.introduction}</p><p>프로젝트에서 문제를 정의하고, 동작을 확인하며, 결과를 바탕으로 다음 단계를 정리하는 과정에 관심이 있습니다. 현장에서 필요한 정확한 측정과 꾸준한 개선의 태도를 키워가고 있습니다.</p><div className="about-points"><div><span>01</span><strong>측정</strong><small>현상을 수치와 동작으로 확인</small></div><div><span>02</span><strong>분석</strong><small>원인과 제약 조건 정리</small></div><div><span>03</span><strong>개선</strong><small>검증 후 다음 설계에 반영</small></div></div></div></div></section>
 
-      <section className="section projects-section" id="projects"><div className="container"><SectionHeading eyebrow="02 / SELECTED PROJECTS" title="프로젝트" description="문제에서 구현까지, 프로젝트의 흐름을 간결하게 정리했습니다."/><div className="projects-grid">{projects.map(project => <ProjectCard key={project.number} project={project} />)}</div><CapstoneCaseStudy /></div></section>
+      <section className="section projects-section" id="projects"><div className="container"><SectionHeading eyebrow="02 / SELECTED PROJECTS" title="프로젝트" description="문제에서 구현까지, 프로젝트의 흐름을 간결하게 정리했습니다."/><div className="projects-grid">{projects.map(project => <ProjectCard key={project.number} project={project} />)}</div><CapstoneCaseStudy /><MisoTalkCaseStudy /></div></section>
 
       <section className="section skills-section" id="skills"><div className="container"><SectionHeading eyebrow="03 / SKILLS" title="기술과 접근 방식" description="프로젝트에서 접한 기술과 문제 해결에 활용한 방법입니다."/><div className="skills-grid">{skillGroups.map((group, index) => <div className="skill-group reveal" key={group.title}><span className="skill-index">0{index + 1}</span><h3>{group.title}</h3><div className="skill-list">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></div></section>
 
