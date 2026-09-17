@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { profile, navigation, projects, skillGroups, experience } from './content.js';
+import { profile, navigation, projects, skillGroups, experience, capstone } from './content.js';
 
 function ArrowIcon({ diagonal = false }) {
   return diagonal ? <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -34,7 +34,7 @@ function ProjectVisual({ type }) {
 
 function ProjectCard({ project }) {
   return <article className="project-card reveal">
-    <ProjectVisual type={project.visual} />
+    {project.image ? <img className="project-photo" src={project.image} alt={project.imageAlt} loading="lazy" width="1299" height="781" /> : <ProjectVisual type={project.visual} />}
     <div className="project-body">
       <div className="project-meta"><span>{project.number} / {project.category}</span><span>{project.subtitle}</span></div>
       <h3>{project.title}</h3>
@@ -42,7 +42,34 @@ function ProjectCard({ project }) {
       <div className="project-detail"><span className="detail-label">PROCESS</span><p>{project.process.join(' → ')}</p></div>
       <div className="project-detail"><span className="detail-label">FOCUS</span><p>{project.focus}</p></div>
       <div className="project-footer"><div className="tags">{project.stack.map(item => <span key={item}>{item}</span>)}</div>{project.href && <a className="project-link" href={project.href} target="_blank" rel="noreferrer" aria-label={`${project.title} 자세히 보기`}><ArrowIcon diagonal /></a>}</div>
+      {project.detailId && <a className="case-link" href={`#${project.detailId}`}>담당 역할과 결과 보기 <ArrowIcon /></a>}
     </div>
+  </article>;
+}
+
+function CapstoneCaseStudy() {
+  return <article className="capstone-case" id="capstone-detail" aria-labelledby="capstone-title">
+    <header className="case-heading">
+      <p className="eyebrow">CAPSTONE / VISION SYSTEM</p>
+      <p className="case-context">{capstone.context}</p>
+      <h3 id="capstone-title">{capstone.title}</h3>
+      <p>{capstone.overview}</p>
+      <span className="role-badge">{capstone.role}</span>
+    </header>
+    <div className="case-intro-grid">
+      <figure className="case-figure"><img src="/capstone/system.jpeg" width="1299" height="781" loading="lazy" alt="카메라가 설치된 볼 밸런싱 로봇과 실시간 공 인식 화면"/><figcaption>팀이 제작한 로봇과 영상 인식 화면 · 최종 보고서 수록 사진</figcaption></figure>
+      <div className="contributions"><h4>직접 맡은 일</h4>{capstone.contributions.map((item,i)=><div key={item.title}><span>0{i+1}</span><h5>{item.title}</h5><p>{item.text}</p></div>)}</div>
+    </div>
+    <h4>영상에서 제어 입력까지</h4>
+    <ol className="vision-flow">{capstone.flow.map((step,i)=><li key={step}><span>0{i+1}</span>{step}</li>)}</ol>
+    <div className="case-analysis-grid">
+      <figure className="case-figure detection-figure"><img src="/capstone/detection.png" width="519" height="520" loading="lazy" alt="주황색 공의 외곽을 검출하고 중심에 십자선을 표시한 인식 화면"/><figcaption>주황색 공의 검출 영역과 중심 위치 확인</figcaption></figure>
+      <div><h4>문제와 해결 과정</h4>{capstone.findings.map(item=><div className="case-finding" key={item.title}><h5>{item.title}</h5><p>{item.text}</p></div>)}</div>
+    </div>
+    <h4>팀 시스템의 실험 결과</h4>
+    <div className="case-metrics">{capstone.metrics.map(item=><div key={item.label}><strong>{item.value}</strong><span>{item.label}</span><p>{item.note}</p></div>)}</div>
+    <p className="case-source">{capstone.resultNote}</p>
+    <div className="case-takeaways"><div><h4>품질관리·생산기술과의 연결</h4><p>{capstone.relevance}</p></div><div><h4>남은 한계와 다음 과제</h4><p>{capstone.next}</p></div></div>
   </article>;
 }
 
@@ -91,7 +118,7 @@ export default function App() {
 
       <section className="section about-section" id="about"><div className="container about-grid"><SectionHeading eyebrow="01 / ABOUT ME" title="관찰에서 개선까지"/><div className="about-copy reveal"><p className="about-lead">{profile.introduction}</p><p>프로젝트에서 문제를 정의하고, 동작을 확인하며, 결과를 바탕으로 다음 단계를 정리하는 과정에 관심이 있습니다. 현장에서 필요한 정확한 측정과 꾸준한 개선의 태도를 키워가고 있습니다.</p><div className="about-points"><div><span>01</span><strong>측정</strong><small>현상을 수치와 동작으로 확인</small></div><div><span>02</span><strong>분석</strong><small>원인과 제약 조건 정리</small></div><div><span>03</span><strong>개선</strong><small>검증 후 다음 설계에 반영</small></div></div></div></div></section>
 
-      <section className="section projects-section" id="projects"><div className="container"><SectionHeading eyebrow="02 / SELECTED PROJECTS" title="프로젝트" description="문제에서 구현까지, 프로젝트의 흐름을 간결하게 정리했습니다."/><div className="projects-grid">{projects.map(project => <ProjectCard key={project.number} project={project} />)}</div></div></section>
+      <section className="section projects-section" id="projects"><div className="container"><SectionHeading eyebrow="02 / SELECTED PROJECTS" title="프로젝트" description="문제에서 구현까지, 프로젝트의 흐름을 간결하게 정리했습니다."/><div className="projects-grid">{projects.map(project => <ProjectCard key={project.number} project={project} />)}</div><CapstoneCaseStudy /></div></section>
 
       <section className="section skills-section" id="skills"><div className="container"><SectionHeading eyebrow="03 / SKILLS" title="기술과 접근 방식" description="프로젝트에서 접한 기술과 문제 해결에 활용한 방법입니다."/><div className="skills-grid">{skillGroups.map((group, index) => <div className="skill-group reveal" key={group.title}><span className="skill-index">0{index + 1}</span><h3>{group.title}</h3><div className="skill-list">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></div></section>
 
