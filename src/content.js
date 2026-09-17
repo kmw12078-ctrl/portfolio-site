@@ -3,7 +3,7 @@
 export const profile = {
   name: '김민우 | 전자공학 포트폴리오',
   headline: '현장의 문제를 데이터와 기술로 이해하는 엔지니어',
-  introduction: '전자공학을 전공한 김민우입니다. 캡스톤 프로젝트에서 Raspberry Pi 카메라와 OpenCV를 연결해 주황색 공을 실시간으로 인식하는 영상 처리 시스템을 담당했습니다. 품질관리와 생산기술 직무에서 측정과 분석을 통해 개선점을 찾는 일을 지향합니다.',
+  introduction: '동아대학교 전자공학을 전공한 김민우입니다. 캡스톤 프로젝트에서 Raspberry Pi 카메라와 OpenCV를 연결해 주황색 공을 실시간으로 인식하는 영상 처리 시스템을 담당했습니다. 품질관리와 생산기술 직무에서 측정과 분석을 통해 개선점을 찾는 일을 지향합니다.',
   email: 'kmw4653@naver.com', // 예: name@example.com
   github: '', // 예: https://github.com/username
   resume: '', // 예: /resume.pdf (public 폴더에 파일 추가)
