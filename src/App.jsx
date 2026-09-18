@@ -71,6 +71,14 @@ function CapstoneCaseStudy() {
     <h4>팀 시스템의 실험 결과</h4>
     <div className="case-metrics">{capstone.metrics.map(item=><div key={item.label}><strong>{item.value}</strong><span>{item.label}</span><p>{item.note}</p></div>)}</div>
     <p className="case-source">{capstone.resultNote}</p>
+    <div className="capstone-demo">
+      <h4>캡스톤 작동 영상</h4>
+      <video controls playsInline preload="metadata" aria-label="볼 밸런싱 로봇 작동 시연 영상">
+        <source src={assetUrl('/capstone/demo.mp4')} type="video/mp4" />
+        사용 중인 브라우저에서 영상을 재생할 수 없습니다.
+      </video>
+      <p>볼 밸런싱 로봇의 작동 시연 영상입니다.</p>
+    </div>
     <div className="case-takeaways"><div><h4>품질관리·생산기술과의 연결</h4><p>{capstone.relevance}</p></div><div><h4>남은 한계와 다음 과제</h4><p>{capstone.next}</p></div></div>
   </article>;
 }
