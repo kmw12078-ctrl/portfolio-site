@@ -172,7 +172,7 @@ export default function App() {
               loading="lazy"
             />
 
-            {/* 학력 사항은 이 줄 아래에 직접 추가하세요. */}
+            
           </div>
 
           <div className="about-copy reveal">
