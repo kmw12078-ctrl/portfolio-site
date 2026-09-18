@@ -173,7 +173,9 @@ export default function App() {
             />
             <p className="section-intro">
               <strong>학력</strong><br />
-              고등학교 졸업 → 경남대학교 입학 → 동아대학교 편입학 → 동아대학교 졸업
+              대청고등학교2016~2019 
+              경남대학교 2019~2023 
+              동아대학교 2024~2026
             </p>
 
             
