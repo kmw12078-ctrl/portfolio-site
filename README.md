@@ -19,5 +19,6 @@ npm run dev
 - `src/styles.css`: 색상, 간격, 글꼴, 반응형 스타일
 - `src/App.jsx`: 섹션 및 컴포넌트 구성
 - `public/`: 이력서 PDF 등 다운로드 파일
+- `public/images/donga-university-logo.png`: About Me 섹션의 동아대학교 로고 ([동아대학교 공식 홈페이지](https://www.donga.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN020) 이미지)
 
 확인되지 않은 이름, 연락처, 성과 수치, 세부 역할은 넣지 않았습니다. `src/content.js`의 빈 링크와 안내 문구를 본인의 실제 정보로 바꾸세요. 프로젝트 링크는 입력했을 때만 버튼이 표시됩니다.

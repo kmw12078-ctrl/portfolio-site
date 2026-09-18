@@ -11,6 +11,7 @@
 .capstone-demo{margin:36px 0 40px}
 .capstone-demo video{display:block;width:100%;max-height:660px;background:#0b2446;object-fit:contain}
 .capstone-demo p{margin:12px 0 0;font-size:14px}
+.about-university-logo{display:block;width:min(271px,100%);height:auto;margin-top:32px}
 .misotalk-details{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin:40px 0 24px}
 .misotalk-features>div{border-top:1px solid #dce7ed;padding:16px 0}
 .misotalk-features h5{color:#0b2446}
