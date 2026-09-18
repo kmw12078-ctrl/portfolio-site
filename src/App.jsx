@@ -173,8 +173,8 @@ export default function App() {
             />
             <p className="section-intro">
               <strong>학력</strong><br />
-              대청고등학교2016~2019 
-              경남대학교 2019~2023 
+              대청고등학교2016~2019<br />
+              경남대학교 2019~2023<br />
               동아대학교 2024~2026
             </p>
 
