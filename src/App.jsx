@@ -158,10 +158,49 @@ export default function App() {
       <section className="section about-section" id="about">
         <div className="container about-grid">
           <div className="about-heading">
-            <SectionHeading eyebrow="01 / ABOUT ME" title="관찰에서 개선까지"/>
-            <img className="about-university-logo" src={assetUrl('/images/donga-university-logo.png')} alt="동아대학교 로고" width="271" height="70" loading="lazy" />
+            <SectionHeading
+              eyebrow="01 / ABOUT ME"
+              title="관찰에서 개선까지"
+            />
+
+            <img
+              className="about-university-logo"
+              src={assetUrl('/images/donga-university-logo.png')}
+              alt="동아대학교 로고"
+              width="271"
+              height="70"
+              loading="lazy"
+            />
+
+            {/* 학력 사항은 이 줄 아래에 직접 추가하세요. */}
           </div>
-          <div className="about-copy reveal"><p className="about-lead">{profile.introduction}</p><p>프로젝트에서 문제를 정의하고, 동작을 확인하며, 결과를 바탕으로 다음 단계를 정리하는 과정에 관심이 있습니다. 현장에서 필요한 정확한 측정과 꾸준한 개선의 태도를 키워가고 있습니다.</p><div className="about-points"><div><span>01</span><strong>측정</strong><small>현상을 수치와 동작으로 확인</small></div><div><span>02</span><strong>분석</strong><small>원인과 제약 조건 정리</small></div><div><span>03</span><strong>개선</strong><small>검증 후 다음 설계에 반영</small></div></div></div>
+
+          <div className="about-copy reveal">
+            <p className="about-lead">{profile.introduction}</p>
+            <p>
+              프로젝트에서 문제를 정의하고, 동작을 확인하며, 결과를 바탕으로 다음 단계를
+              정리하는 과정에 관심이 있습니다. 현장에서 필요한 정확한 측정과 꾸준한
+              개선의 태도를 키워가고 있습니다.
+            </p>
+
+            <div className="about-points">
+              <div>
+                <span>01</span>
+                <strong>측정</strong>
+                <small>현상을 수치와 동작으로 확인</small>
+              </div>
+              <div>
+                <span>02</span>
+                <strong>분석</strong>
+                <small>원인과 제약 조건 정리</small>
+              </div>
+              <div>
+                <span>03</span>
+                <strong>개선</strong>
+                <small>검증 후 다음 설계에 반영</small>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
