@@ -171,6 +171,10 @@ export default function App() {
               height="70"
               loading="lazy"
             />
+            <p className="section-intro">
+              <strong>학력</strong><br />
+              고등학교 졸업 → 경남대학교 입학 → 동아대학교 편입학 → 동아대학교 졸업
+            </p>
 
             
           </div>
